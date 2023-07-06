@@ -167,8 +167,8 @@ function updateMoveValue(moveInput, moveInputId) {
       Number($('#' + unchangedValueIds[1]).val());
 
   if (!updatedValue || updatedValue < 0) {
-    updatedValue = 1;
-    $('#' + moveInputId).val(1);
+    updatedValue = 0; 
+    $('#' + moveInputId).val(0);
   } else if ((unchangedValueSum + updatedValue) > 99) {
     updatedValue = 99 - unchangedValueSum;
     $('#' + moveInputId).val(updatedValue);

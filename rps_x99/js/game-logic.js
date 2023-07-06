@@ -63,7 +63,7 @@ function isValidMoveType(moveType) {
 }
 // helper function to evaluate if move has valid value
 function isValidMoveValue(moveValue) {
-    return (moveValue >= 1) && (moveValue <= 99);
+    return (moveValue >= 0) && (moveValue <= 99);
 }
 
 // function to compare player moves in a round
