@@ -12,7 +12,7 @@ The Scoop allows users to:
 - View all of a user's articles and comments
 
 <!-- Image GIF of project -->
-![The Scoop](the_scoop/gifsjs_thescoop.gif)
+![The Scoop](https://github.com/sreeharsha-rav/javascript_projects/blob/main/the_scoop/gif/js_thescoop.gif)
 
 ### Installation and Usage
 <!-- How to install and run the project? -->

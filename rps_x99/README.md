@@ -3,7 +3,7 @@
 Rock, Paper, Scissors x99 is an interactive web game that puts a new twist on the classic game of Rock, Paper, Scissors. In this variation, players will strategically select three moves, each consisting of a type (Rock, Paper, or Scissors) and a strength value. The objective is to outsmart your opponent by making strategic move choices and allocating strength points wisely.
 
 <!-- Image GIF of project -->
-![Rock-Paper-Scissors x99](rps_x99/gif/js_rps.gif)
+![Rock-Paper-Scissors x99](https://github.com/sreeharsha-rav/javascript_projects/blob/main/rps_x99/gif/js_rps.gif)
 
 ### Installation and Usage
 <!-- How to install and run the project? -->
