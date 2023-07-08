@@ -24,8 +24,8 @@ Code will run in the browser instead of the terminal. To use it:
     ```
     to install all necessary dependencies. (You will just need to do this once)
 3. Start the server on your terminal:
-  ```bash
-  node server.js
-  ```
+    ```bash
+    node server.js
+    ```
 4. Open **index.html** on your local browser, to interact with the web app.
 5. To exit/end, press '**ctrl+c**' on the terminal, close the browser.

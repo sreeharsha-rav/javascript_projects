@@ -10,9 +10,9 @@ Rock, Paper, Scissors x99 is an interactive web game that puts a new twist on th
 Code will run in the browser instead of the terminal. To use it:
 1. Make sure you are in *rps_x99* directory, after *cloning/downloading* repo to your system.
 2. From the root project directory, run on terminal:
-    ```bash
-    npm install
-    ```
+        ```bash
+        npm install
+        ```
     to install all necessary dependencies. (You will just need to do this once)
 3. **Game Play:**
     1. *Start the game*: Launch the web game in your browser (Open **index.html**) and invite a friend or play against the computer.
