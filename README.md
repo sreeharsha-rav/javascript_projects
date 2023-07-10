@@ -10,6 +10,7 @@ This repo consists of the following projects:
 - [**Rock-Paper-Scissors x99**](https://github.com/sreeharsha-rav/javascript_projects/tree/main/rps_x99): A 3-round variation of Rock-Paper-Scissors as an interactive web game. 
 - [**The Scoop**](https://github.com/sreeharsha-rav/javascript_projects/tree/main/the_scoop): A web app for users to post articles, comment, and upvote/downvote them.
 - [**Boss Machine**](https://github.com/sreeharsha-rav/javascript_projects/tree/main/boss_machine): An API based unique management application for accomplished minions.
+- [**Expresso**](https://github.com/sreeharsha-rav/javascript_projects/tree/main/expresso): A full back-end CRUD API for a local cafe.
 
 ### Requirements
 Need to have Node.js on terminal to run the projects. 
