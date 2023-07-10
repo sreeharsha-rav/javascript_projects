@@ -10,7 +10,7 @@ The Expresso internal tool should allow users to:
 - Create, view, update, and delete employee’s timesheets
 
 <!-- Image GIF of project -->
-![Expresso](https://github.com/sreeharsha-rav/javascript_projects/blob/main/the_scoop/gif/js_expresso.gif)
+![expresso](https://github.com/sreeharsha-rav/javascript_projects/blob/main/expresso/gif/js_expresso.gif)
 
 ### Installation and Usage
 <!-- How to install and run the project? -->
