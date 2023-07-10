@@ -10,3 +10,9 @@ Number Guesser is an interactive web game that allows users to challenge themsel
 Code will run in the browser instead of the terminal. To use it:
 1. Make sure you are in *number_guesser* folder, after *cloning/downloading* repo to your system.
 2. Open **index.html** with your local browser.
+
+### Credits
+
+Tutorials, materials referenced from Codecademy:
+- [Create a Back-End App with JavaScript](https://www.codecademy.com/learn/paths/create-a-back-end-app-with-javascript)
+- [Back-End Engineer Career Path](https://join.codecademy.com/learn/paths/back-end-engineer-career-path-b/)

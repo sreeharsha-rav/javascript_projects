@@ -20,3 +20,9 @@ Code will run in the browser instead of the terminal. To use it:
     ```
 4. Open **index.html** from the root directory on your local browser, to interact with the web app.
 5. To exit/end, press '**ctrl+c**' on the terminal, close the browser.
+
+### Credits
+
+Tutorials, materials referenced from Codecademy:
+- [Create a Back-End App with JavaScript](https://www.codecademy.com/learn/paths/create-a-back-end-app-with-javascript)
+- [Back-End Engineer Career Path](https://join.codecademy.com/learn/paths/back-end-engineer-career-path-b/)

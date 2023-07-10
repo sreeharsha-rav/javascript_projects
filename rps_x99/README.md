@@ -19,3 +19,9 @@ Code will run in the browser instead of the terminal. To use it:
     2. *Choose Your Moves*: For each of the three rounds, select your moves by specifying the type (Rock, Paper, or Scissors) and allocating strength points. You have a total of 99 strength points to distribute among your moves. Ensure that each move has a minimum strength value of 1.
     3. *Compare Moves*: After both players have made their move selections, the game will compare the moves in the order they were chosen. If the types of the moves are different, the regular Rock, Paper, Scissors rules apply (e.g., Rock beats Scissors). However, if the move types are the same, the move with higher strength points will be the winner. If both moves have equal strength points, a tie is declared for that round.
     4. *Determine the Winner*: The game consists of three rounds. After all three rounds, the player who wins the majority of the rounds will be declared the overall winner, else the game will end in draw.
+
+### Credits
+
+Tutorials, materials referenced from Codecademy:
+- [Create a Back-End App with JavaScript](https://www.codecademy.com/learn/paths/create-a-back-end-app-with-javascript)
+- [Back-End Engineer Career Path](https://join.codecademy.com/learn/paths/back-end-engineer-career-path-b/)
