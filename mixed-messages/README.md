@@ -17,7 +17,7 @@ To run the Message Generator on your local machine, follow these steps:
 You can also customize the messages by modifying the data arrays in the script.js file. Add or edit greetings, prepositions, and locations to create different types of random messages.
 
 ### Credits
-This project was created by **Codecademy** as a JavaScript exercise. It can be further enhanced and customized to suit your preferences and creative ideas.
+This project can be further enhanced and customized to suit your preferences and creative ideas.
 
 Feel free to contribute to this project by adding more data arrays, improving the user interface, or extending the functionality. If you have any suggestions or find issues, please create a GitHub issue or submit a pull request.
 
