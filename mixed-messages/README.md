@@ -6,18 +6,13 @@ The Mixed Messages is a simple JavaScript program that generates random silly ex
 <!-- How to install and run the project? -->
 To run the Message Generator on your local machine, follow these steps:
 
-1. Clone the repository to your computer using Git:
-    ``` bash
-    git clone https://github.com/sreeharsha-rav/javascript_projects/mixed-messages.git
-    ```
-
-2. Navigate to the project directory:
+1. Navigate to the project directory:
     ```bash
     cd mixed-messages
     ```
 
-3. Open the index.html file in a web browser.
-4. Click the "Generate Message" button to generate and display a random message on the web page.
+2. Open the index.html file in a web browser.
+3. Click the "Generate Message" button to generate and display a random message on the web page.
 
 You can also customize the messages by modifying the data arrays in the script.js file. Add or edit greetings, prepositions, and locations to create different types of random messages.
 
