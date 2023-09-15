@@ -6,6 +6,7 @@ This repository contains projects that demonstrate functionality of JavaScript o
 ### Projects
 
 This repo consists of the following projects:
+- [**Mixed Messages**](https://github.com/sreeharsha-rav/javascript_projects/tree/main/mixed-messages): A random silly excuse generator.
 - [**Number Guesser**](https://github.com/sreeharsha-rav/javascript_projects/tree/main/number_guesser): An interactive number guessing web game.
 - [**Rock-Paper-Scissors x99**](https://github.com/sreeharsha-rav/javascript_projects/tree/main/rps_x99): A 3-round variation of Rock-Paper-Scissors as an interactive web game. 
 - [**The Scoop**](https://github.com/sreeharsha-rav/javascript_projects/tree/main/the_scoop): A web app for users to post articles, comment, and upvote/downvote them.
