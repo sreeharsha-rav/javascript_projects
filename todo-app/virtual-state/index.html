@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Simple Todo App</title>
+        <style>
+            /* Basic reset and container styling */
+            body {
+                text-align: center;
+                align-content: center;
+                font-family: Arial, sans-serif;
+                max-width: 500px;
+                margin: 20px auto;
+                padding: 0 20px;
+            }
+
+            /* Input container styling */
+            .input-container {
+                display: flex;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            /* Input field styling */
+            #todoInput {
+                flex-grow: 1;
+                padding: 8px;
+                font-size: 16px;
+            }
+
+            /* Add button styling */
+            #addButton {
+                padding: 8px 16px;
+                background-color: #4caf50;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+
+            /* Todo item styling */
+            .todo-item {
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                gap: 10px;
+            }
+
+            /* Delete button styling */
+            .delete-btn {
+                padding: 4px 8px;
+                background-color: #ff4444;
+                color: white;
+                border: none;
+                cursor: pointer;
+                margin-left: auto;
+            }
+
+            /* Completed todo item styling */
+            .completed {
+                text-decoration: line-through;
+                color: #666;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Todo List</h1>
+
+        <!-- Input section for new todos -->
+        <div class="input-container">
+            <input type="text" id="todoInput" placeholder="Enter a new task" />
+            <button id="addButton" onclick="addTodo()">Add</button>
+        </div>
+
+        <!-- Container for todo items -->
+        <div id="todoList"></div>
+
+        <script>
+            // State management
+            let nextId = 1; // keep track of the next id for a new todo
+            let currentTodoState = []; // Current state for diffing
+            let oldTodoState = []; // Previous state for diffing
+
+            // DOM element
+            const todoInput = document.getElementById("todoInput");
+
+            // Add a todo
+            const addTodo = () => {
+                const text = todoInput.value.trim();
+                if (!text) return;
+
+                // add a new todo to current state
+                const newTodo = {
+                    id: nextId++,
+                    text,
+                    completed: false,
+                };
+                currentTodoState.push(newTodo);
+
+                updateState();
+            };
+
+            // Toggle todo completion status
+            const toggleTodo = (id) => {
+                currentTodoState = currentTodoState.map((todo) => {
+                    if (todo.id === id) {
+                        return {
+                            ...todo,
+                            completed: !todo.completed,
+                        };
+                    }
+                    return todo;
+                });
+
+                updateState();
+            };
+
+            // Delete a todo
+            const deleteTodo = (id) => {
+                currentTodoState = currentTodoState.filter(
+                    (todo) => todo.id !== id,
+                );
+                updateState();
+            };
+
+            // Create a todo DOM element
+            const createTodo = (todo) => {
+                // Create container for todo
+                const todoDiv = document.createElement("div");
+                todoDiv.className = "todo-item";
+                todoDiv.setAttribute("id", `todo-${todo.id}`);
+
+                // Create checkbox
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.checked = todo.completed;
+
+                // Create text span
+                const todoText = document.createElement("span");
+                todoText.textContent = todo.text;
+                if (todo.completed) {
+                    todoText.classList.add("completed");
+                }
+
+                // Create delete button
+                const deleteButton = document.createElement("button");
+                deleteButton.textContent = "×";
+                deleteButton.className = "delete-btn";
+
+                // Add event listener for checkbox to toggle completion status
+                checkbox.addEventListener("change", () => {
+                    toggleTodo(todo.id);
+                });
+
+                // Add event listener for delete button
+                deleteButton.addEventListener("click", () => {
+                    deleteTodo(todo.id);
+                });
+
+                // Append elements to todo item
+                todoDiv.appendChild(checkbox);
+                todoDiv.appendChild(todoText);
+                todoDiv.appendChild(deleteButton);
+
+                return todoDiv;
+            };
+
+            // Update the DOM using diffing between old and new state
+            const updateState = () => {
+                // find the difference between the old and new state
+                const added = currentTodoState.filter(
+                    (newTodo) =>
+                        !oldTodoState.some(
+                            (oldTodo) => oldTodo.id === newTodo.id,
+                        ),
+                );
+                const removed = oldTodoState.filter(
+                    (oldTodo) =>
+                        !currentTodoState.some(
+                            (newTodo) => newTodo.id === oldTodo.id,
+                        ),
+                );
+                const updated = currentTodoState.filter((newTodo) => {
+                    const oldTodo = oldTodoState.find(
+                        (oldTodo) => oldTodo.id === newTodo.id,
+                    );
+                    return oldTodo && oldTodo.completed !== newTodo.completed;
+                });
+
+                // Update the DOM based on the difference
+
+                // Remove deleted todos from the DOM
+                removed.forEach((todo) => {
+                    const todoItem = document.getElementById(`todo-${todo.id}`);
+                    if (todoItem) {
+                        todoItem.remove();
+                    }
+                });
+
+                // Add new todos to the DOM
+                added.forEach((todo) => {
+                    const todoItem = createTodo(todo);
+                    todoList.appendChild(todoItem);
+                });
+
+                // Update completed status of todos in the DOM
+                updated.forEach((todo) => {
+                    const todoItem = document.getElementById(`todo-${todo.id}`);
+                    const todoText = todoItem.querySelector("span");
+                    if (todo.completed) {
+                        todoText.classList.add("completed");
+                    } else {
+                        todoText.classList.remove("completed");
+                    }
+                });
+
+                // Update old state reference
+                oldTodoState = [...currentTodoState];
+            };
+        </script>
+    </body>
+</html>
