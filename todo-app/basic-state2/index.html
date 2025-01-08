@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Simple Todo App</title>
+        <style>
+            /* Basic reset and container styling */
+            body {
+                text-align: center;
+                align-content: center;
+                font-family: Arial, sans-serif;
+                max-width: 500px;
+                margin: 20px auto;
+                padding: 0 20px;
+            }
+
+            /* Input container styling */
+            .input-container {
+                display: flex;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            /* Input field styling */
+            #todoInput {
+                flex-grow: 1;
+                padding: 8px;
+                font-size: 16px;
+            }
+
+            /* Add button styling */
+            #addButton {
+                padding: 8px 16px;
+                background-color: #4caf50;
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+
+            /* Todo item styling */
+            .todo-item {
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                gap: 10px;
+            }
+
+            /* Delete button styling */
+            .delete-btn {
+                padding: 4px 8px;
+                background-color: #ff4444;
+                color: white;
+                border: none;
+                cursor: pointer;
+                margin-left: auto;
+            }
+
+            /* Completed todo item styling */
+            .completed {
+                text-decoration: line-through;
+                color: #666;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Todo List</h1>
+
+        <!-- Input section for new todos -->
+        <div class="input-container">
+            <input type="text" id="todoInput" placeholder="Enter a new task" />
+            <button id="addButton">Add</button>
+        </div>
+
+        <!-- Container for todo items -->
+        <div id="todoList"></div>
+
+        <script>
+            const todoState = new Map(); // Create a new Map to store todo items
+            let nextId = 1; // keep track of the next id for a new todo item
+
+            // DOM elements
+            const todoInput = document.getElementById("todoInput");
+            const addButton = document.getElementById("addButton");
+            const todoList = document.getElementById("todoList");
+
+            // State management functions
+            const TodoStateManager = {
+                // create a new DOM todo item
+                createTodoItem(todo) {
+                    // Create container for todo item
+                    const todoItem = document.createElement("div");
+                    todoItem.className = "todo-item";
+                    todoItem.setAttribute("id", `todo-${todo.id}`);
+
+                    // Create checkbox
+                    const checkbox = document.createElement("input");
+                    checkbox.type = "checkbox";
+                    checkbox.checked = todo.completed;
+                    checkbox.addEventListener("change", () => {
+                        this.toggleTodoItem(todo.id);
+                    });
+
+                    // Create text span
+                    const todoText = document.createElement("span");
+                    todoText.textContent = todo.text;
+                    if (todo.completed) {
+                        todoText.classList.add("completed");
+                    }
+
+                    // Create delete button
+                    const deleteButton = document.createElement("button");
+                    deleteButton.textContent = "×";
+                    deleteButton.className = "delete-btn";
+                    deleteButton.addEventListener("click", () => {
+                        this.deleteTodoItem(todo.id);
+                    });
+
+                    // Append elements to todo item
+                    todoItem.appendChild(checkbox);
+                    todoItem.appendChild(todoText);
+                    todoItem.appendChild(deleteButton);
+
+                    return todoItem;
+                },
+
+                // Add a todo item
+                addTodoItem(text) {
+                    const todo = {
+                        id: nextId++,
+                        text,
+                        completed: false,
+                    };
+                    todoState.set(todo.id, todo);
+
+                    // Create and insert DOM element for todo item
+                    const todoItem = this.createTodoItem(todo);
+                    todoList.appendChild(todoItem);
+                },
+
+                // Toggle todo item completion status
+                toggleTodoItem(id) {
+                    const todo = todoState.get(id);
+                    if (!todo) return;
+
+                    // Update todo item completion status
+                    todo.completed = !todo.completed;
+                    todoState.set(id, todo);
+
+                    // Update DOM element for todo item
+                    const todoItem = document.getElementById(`todo-${id}`);
+                    if (todoItem) {
+                        const checkbox = todoItem.querySelector("input");
+                        const todoText = todoItem.querySelector("span");
+                        todoText.classList.toggle("completed");
+                        checkbox.checked = todo.completed;
+                    }
+                },
+
+                // Delete a todo item
+                deleteTodoItem(id) {
+                    todoState.delete(id);
+
+                    // Remove DOM element for todo item
+                    const todoItem = document.getElementById(`todo-${id}`);
+                    if (todoItem) {
+                        todoItem.remove();
+                    }
+                },
+            };
+
+            // Function to handle input and create new todo item
+            function handleInput() {
+                const text = todoInput.value.trim();
+                if (text) {
+                    TodoStateManager.addTodoItem(text);
+                    todoInput.value = ""; // Clear input field
+                }
+            }
+
+            // Event listeners for input field and add button
+            addButton.addEventListener("click", handleInput);
+            todoInput.addEventListener("keypress", (e) => {
+                if (e.key === "Enter") {
+                    handleInput();
+                }
+            });
+        </script>
+    </body>
+</html>
