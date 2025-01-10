@@ -1,0 +1,83 @@
+/* Basic reset and container styling */
+body {
+    text-align: center;
+    align-content: center;
+    font-family: Arial, sans-serif;
+    max-width: 350px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* Page title styling */
+.logout-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 8px 16px;
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Input container styling */
+.input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Input field styling */
+#todoInput {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Add button styling */
+#addButton {
+    padding: 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#addButton:hover {
+    background-color: #45a049;
+}
+
+/* Todo item styling */
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    gap: 10px;
+}
+
+/* Delete button styling */
+.delete-btn {
+    padding: 4px 8px;
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.delete-btn:hover {
+    background-color: #ff3333;
+}
+
+/* Completed todo item styling */
+.completed {
+    text-decoration: line-through;
+    color: #666;
+}
